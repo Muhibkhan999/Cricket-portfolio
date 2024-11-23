@@ -12,7 +12,7 @@
     --text-color: #333;
     --bg-light: #f9f9f9;
     --bg-dark: #f0f0f0;
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition */
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.15);
     --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.2);
@@ -44,6 +44,42 @@ body {
     width: min(95%, var(--max-width));
     margin-inline: auto;
     padding-inline: var(--spacing-sm);
+    padding-block: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.container:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.02);
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, rgba(76, 175, 80, 0.1), rgba(69, 160, 73, 0.15));
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.container:hover::before {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding-inline: var(--spacing-xs);
+        padding-block: var(--spacing-sm);
+    }
 }
 
 img {
@@ -51,7 +87,7 @@ img {
     height: auto;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease; /* Smooth transform and shadow on hover */
+    transition: var(--transition);
     transform-origin: center;
     filter: brightness(1) contrast(1.05) saturate(1.1);
     cursor: pointer;
@@ -70,7 +106,7 @@ img:hover {
     border-radius: var(--border-radius-lg);
     margin: var(--spacing-md) 0;
     box-shadow: var(--shadow-sm);
-    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth scaling on hover */
+    transition: var(--transition);
 }
 
 .image-container::before {
@@ -79,7 +115,7 @@ img:hover {
     inset: 0;
     background: linear-gradient(60deg, rgba(76, 175, 80, 0.4), rgba(69, 160, 73, 0.4));
     opacity: 0;
-    transition: opacity 0.4s ease; /* Smooth fade-in effect */
+    transition: var(--transition);
     z-index: 1;
     backdrop-filter: blur(3px);
 }
@@ -91,7 +127,7 @@ img:hover {
 .image-container img {
     display: block;
     width: 100%;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth zoom effect */
+    transition: var(--transition);
 }
 
 .image-container:hover img {
@@ -104,7 +140,7 @@ section {
     background: white;
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-sm);
-    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transform on hover */
+    transition: var(--transition);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -126,7 +162,7 @@ section h2 {
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.4s ease; /* Smooth transition for text color */
+    transition: var(--transition);
 }
 
 section h2::after {
@@ -137,7 +173,7 @@ section h2::after {
     width: 60px;
     height: 4px;
     background: var(--primary-dark);
-    transition: width 0.4s ease, background 0.4s ease; /* Smooth transition for underline */
+    transition: var(--transition);
 }
 
 section:hover h2::after {
@@ -159,7 +195,7 @@ ul li {
     padding: var(--spacing-sm);
     border-left: 5px solid var(--primary-color);
     background: linear-gradient(to right, #f8f8f8, white);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    transition: var(--transition);
     position: relative;
     overflow: hidden;
     border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
@@ -174,7 +210,7 @@ ul li::before {
     height: 100%;
     width: 0;
     background: linear-gradient(to right, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05));
-    transition: width 0.4s ease; /* Smooth slide-in effect */
+    transition: var(--transition);
 }
 
 ul li:hover::before {
@@ -197,7 +233,7 @@ footer {
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
+    transition: var(--transition);
 }
 
 footer::before {
@@ -206,7 +242,7 @@ footer::before {
     inset: 0;
     background: linear-gradient(60deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
     transform: translateX(-100%);
-    transition: transform 0.4s ease; /* Smooth sliding effect */
+    transition: var(--transition);
 }
 
 footer:hover::before {
@@ -214,13 +250,14 @@ footer:hover::before {
 }
 
 footer:hover {
-    transform: translateY(-5px) scale(1.02); /* Smooth scale on hover */
+    transform: translateY(-5px) scale(1.02);
 }
 
 @media screen and (max-width: 768px) {
     .container {
         width: 98%;
         padding-inline: var(--spacing-xs);
+        grid-template-columns: 1fr;
     }
 
     ul {
@@ -250,7 +287,10 @@ footer:hover {
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    body {
-        background: linear-gradient(145deg, var(--bg-light), var(--bg-dark));
+    .container,
+    section,
+    footer {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
     }
 }
