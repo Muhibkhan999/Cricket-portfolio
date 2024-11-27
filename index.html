@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cricket Portfolio - Muhammad Bilal Waheed</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Cricket Portfolio</h1>
-            <p>Muhammad Bilal Waheed</p>
-        </div>
-    </header>
-
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <h1>Cricket Portfolio</h1>
+                <p>Muhammad Bilal Waheed</p>
+            </div>
+             
+    </header> 
+   
     <section class="personal-info container">
         <h2 style="font-family: 'Arial', sans-serif;">Personal Information</h2>
         <ul style="font-family: 'Arial', sans-serif;">
@@ -22,8 +26,12 @@
             <li><strong>Location:</strong> Karachi, Malir</li>
             <li><strong>Age:</strong> 16</li>
             <li><strong>Contact:</strong> +92 304-2569128</li>
-            <li><strong>Email:</strong> bilalwaheed@gmail.com</li>
+            <a href="mailto:your-email@gmail.com" class="gmail-link">
+                <i class="fas fa-envelope"></i> bilalwaheed786@gmail.com
+            </a>
+            
         </ul>        <img src="data:image/jpeg;base64,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" alt="Cricket Profile Photo" class="profile-image">
+        <img src=" https://images.unsplash.com/photo-1624194770831-00d655f9a1e4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNyaWNrZXR8ZW58MHx8MHx8fDA%3D" alt="Cricket Profile Photo" class="profile-image">
     </section>
 
     <section class="cricket-experience container">
@@ -63,12 +71,39 @@
     </section>    <section class="training container">
         <h2>Training and Development</h2>
         <ul>
-            <li><strong>Coaches:</strong>  Hassan Yar</li>
             <li><strong>Training Sessions:</strong> Daily practice sessions from 4 PM to 7 PM, including specialized batting, bowling, and fielding drills. Additional fitness training three times a week.</li>
         </ul> 
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1595210382266-2d0077c1f541?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNyaWNrZXQlMjB0cmFpbmluZ3xlbnwwfHwwfHx8MA%3D%3D" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://media.istockphoto.com/id/1648544889/photo/scoring-points-for-the-team.jpg?s=612x612&w=0&k=20&c=wGyRE_dHzJ4-xBUQzwEnDWQmx3NKNXSAWF1LNIb5opk=" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://media.istockphoto.com/id/1489165986/photo/a-front-view-of-a-focused-batsman-in-action-taking-long-shot.jpg?s=612x612&w=0&k=20&c=zZCkRnRGYxLmG-8rQhjOg7PIFb0-cZzygrbDGS-d4CE=" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         
-        <img src="https://images.unsplash.com/photo-1595210382266-2d0077c1f541?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNyaWNrZXQlMjB0cmFpbmluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Training Session" class="training-image">
     </section>
+    <section class="achievements container">
+            <h2>Achievements and Awards</h2>
+            <ul>
+                <li>Player of the Tournament in Regional U19 Championship 2023</li>
+                <li>Fastest Century in School Cricket (102 runs off 43 balls)</li>
+                <li>Selected for National Cricket Academy Training Camp</li>
+                <li>Best Bowler Award in District Championship</li>
+    
     <section class="future-goals container">
         <h2>Future Goals</h2>
         <ul>
@@ -83,6 +118,13 @@
 
     <footer>
         <p>© 2024 Muhammad Bilal Waheed. All rights reserved.</p>
+        <p>Contact: bilal.waheed@email.com | Phone: +92 300 1234567</p>
+        <p>Follow me on: 
+            <a href="https://twitter.com/bilalwaheed">Twitter</a> | 
+            <a href="https://instagram.com/bilal.waheed">Instagram</a> | 
+            <a href="https://linkedin.com/in/bilalwaheed">LinkedIn</a>
+        </p>
+        
     </footer>
 
 </body>
